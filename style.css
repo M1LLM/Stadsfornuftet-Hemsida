@@ -23,3 +23,39 @@ select:focus{
   outline:2px solid #2388ff55;
   border-color:var(--blue);
 }
+
+/* Staff-sektion */
+.staff-card {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-color: #2388ff66;
+  box-shadow: 0 0 25px #006dff18;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.staff-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 35px #006dff44;
+}
+
+.staff-avatar {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 18px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2388ff, #1456c7);
+  color: white;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  box-shadow: 0 0 30px #2388ff55;
+}
+
+.staff-role {
+  color: var(--blue2) !important;
+  font-weight: 700;
+  margin-bottom: 12px !important;
+}
