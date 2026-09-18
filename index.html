@@ -62,13 +62,158 @@
 
     <section class="split-section" id="whitelist">
       <div><p class="eyebrow">WHITELIST</p><h2>Redo att bli en del av staden?</h2><p>Fyll i ansökan nedan. Detta är en första designversion av formuläret; anslutning till databas och staffpanel läggs till i nästa steg.</p></div>
-      <form class="application-form" id="application-form">
-        <label>Discord-namn<input required name="discord" placeholder="Ditt Discord-namn" /></label>
-        <label>Ålder<input required type="number" min="20" name="age" placeholder="20" /></label>
-        <label>Berätta kort om dig<textarea required name="about" rows="4" placeholder="Din erfarenhet och vad du söker i RP..."></textarea></label>
-        <button class="button primary" type="submit">Skicka testansökan</button>
-        <p class="form-note" id="form-note" role="status">Formuläret är i designläge och skickar ännu ingen riktig ansökan.</p>
-      </form>
+      ```html
+<form class="application-form" id="application-form">
+
+  <label>
+    För- och efternamn
+    <input required name="name" placeholder="Ditt för- och efternamn" />
+  </label>
+
+  <label>
+    Ålder
+    <input required type="number" min="20" name="age" placeholder="Din ålder" />
+  </label>
+
+  <label>
+    Discord-namn
+    <input required name="discord" placeholder="Ditt Discord-namn" />
+  </label>
+
+  <label>
+    Karaktärens för- och efternamn
+    <input required name="character-name" placeholder="Karaktärens namn" />
+  </label>
+
+  <label>
+    Karaktärens ålder
+    <span class="form-help">
+      Din karaktär ska vara minst 18 år. Om du vill spela en yngre karaktär behöver detta godkännas i förväg av staff.
+    </span>
+    <input required type="number" min="18" name="character-age" placeholder="Karaktärens ålder" />
+  </label>
+
+  <label>
+    Ska du rollspela som laglig eller kriminell?
+    <span class="form-help">
+      Den inriktning du väljer ska följas i ditt rollspel. Om du senare vill ändra din karaktärs inriktning, exempelvis från laglig till kriminell, behöver detta godkännas av staff innan du påbörjar den nya inriktningen.
+    </span>
+    <select required name="character-type">
+      <option value="">Välj inriktning</option>
+      <option value="Laglig">Laglig</option>
+      <option value="Kriminell">Kriminell</option>
+    </select>
+  </label>
+
+  <label>
+    Vad har din karaktär för bakgrundshistoria?
+    <span class="form-help">
+      Berätta om din karaktärs bakgrund, exempelvis var personen kommer ifrån, hur uppväxten har sett ut, vad karaktären har gjort tidigare i livet och vad som har lett fram till att karaktären befinner sig i staden idag. Försök att skapa en trovärdig och genomtänkt bakgrund som passar din valda inriktning.
+    </span>
+    <textarea required name="background" rows="6" placeholder="Berätta om din karaktär..."></textarea>
+  </label>
+
+  <label>
+    Hur länge har du spelat FiveM/GTA RP?
+    <span class="form-help">
+      Berätta gärna ungefär hur länge du har spelat och vilken typ av RP-erfarenhet du har.
+    </span>
+    <textarea required name="experience" rows="4" placeholder="Berätta om din erfarenhet..."></textarea>
+  </label>
+
+  <label>
+    Vad innebär Roleplay för dig?
+    <span class="form-help">
+      Beskriv med egna ord vad Roleplay innebär för dig och vad du tycker kännetecknar ett bra och seriöst rollspel. Vi vill gärna se hur du själv ser på att skapa trovärdiga och roliga scenarion tillsammans med andra spelare.
+    </span>
+    <textarea required name="roleplay" rows="5" placeholder="Beskriv med egna ord..."></textarea>
+  </label>
+
+  <label>
+    Vad innebär Fail RP?
+    <span class="form-help">
+      Förklara med egna ord vad Fail RP innebär och ge gärna ett konkret exempel på en situation där någon bryter mot principerna för seriöst och trovärdigt rollspel.
+    </span>
+    <textarea required name="fail-rp" rows="5" placeholder="Förklara och ge ett exempel..."></textarea>
+  </label>
+
+  <label>
+    Vad innebär RDM och VDM?
+    <span class="form-help">
+      Förklara med egna ord vad RDM (Random Deathmatch) och VDM (Vehicle Deathmatch) innebär. Beskriv gärna ett exempel på hur respektive regelbrott kan se ut i ett RP-scenario.
+    </span>
+    <textarea required name="rdm-vdm" rows="5" placeholder="Förklara RDM och VDM..."></textarea>
+  </label>
+
+  <label>
+    Vad innebär Metagaming?
+    <span class="form-help">
+      Förklara med egna ord vad Metagaming innebär och ge gärna ett konkret exempel på hur information som din karaktär inte känner till kan påverka ditt RP.
+    </span>
+    <textarea required name="metagaming" rows="5" placeholder="Förklara och ge ett exempel..."></textarea>
+  </label>
+
+  <label>
+    Vad innebär Powergaming?
+    <span class="form-help">
+      Förklara med egna ord vad Powergaming innebär och ge gärna ett konkret exempel på hur Powergaming kan se ut i ett RP-scenario.
+    </span>
+    <textarea required name="powergaming" rows="5" placeholder="Förklara och ge ett exempel..."></textarea>
+  </label>
+
+  <label>
+    Hur skulle du agera om någon bryter mot reglerna under ett RP-scenario?
+    <span class="form-help">
+      Beskriv hur du skulle hantera situationen utan att förstöra eller avbryta RP:t i onödan. Berätta även hur du skulle gå tillväga efter scenariot om du anser att ett regelbrott har begåtts.
+    </span>
+    <textarea required name="rule-break" rows="5" placeholder="Beskriv hur du skulle agera..."></textarea>
+  </label>
+
+  <label>
+    Vad gör du om du anser att en annan spelare har gjort fel under ett scenario?
+    <span class="form-help">
+      Beskriv hur du skulle agera om du anser att en annan spelare har brutit mot reglerna eller förstört RP:t. Vi vill veta hur du skulle hantera situationen på ett moget och respektfullt sätt.
+    </span>
+    <textarea required name="player-mistake" rows="5" placeholder="Beskriv hur du skulle agera..."></textarea>
+  </label>
+
+  <label>
+    Hur hittade du Stadsförnuftet Roleplay, och varför vill du spela hos oss?
+    <textarea required name="why-us" rows="5" placeholder="Berätta hur du hittade oss och varför du söker till servern..."></textarea>
+  </label>
+
+  <label>
+    Vad har du för förväntningar på Stadsförnuftet Roleplay?
+    <textarea required name="expectations" rows="5" placeholder="Berätta om dina förväntningar..."></textarea>
+  </label>
+
+  <label>
+    Är du införstådd med att servern är 20+ och att våra regler ska följas?
+    <select required name="age-rules">
+      <option value="">Välj ett alternativ</option>
+      <option value="Ja">Ja</option>
+      <option value="Nej">Nej</option>
+    </select>
+  </label>
+
+  <label>
+    Har du läst våra regler?
+    <select required name="rules-read">
+      <option value="">Välj ett alternativ</option>
+      <option value="Ja">Ja</option>
+      <option value="Nej">Nej</option>
+    </select>
+  </label>
+
+  <button class="button primary" type="submit">Skicka ansökan</button>
+
+  <p class="form-note" id="form-note" role="status">
+    Din ansökan skickas in för granskning av staff.
+  </p>
+
+</form>
+```
+
     </section>
 
     <section class="discord-section" id="discord"><p class="eyebrow">HÄNG MED</p><h2>All information på ett ställe.</h2><p>Gå med i Discord för nyheter, support, whitelist och kontakt med communityn.</p><a class="button secondary" href="#top">Lägg in Discord-länk senare</a></section>
