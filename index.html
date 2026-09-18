@@ -62,7 +62,7 @@
 
     <section class="split-section" id="whitelist">
       <div><p class="eyebrow">WHITELIST</p><h2>Redo att bli en del av staden?</h2><p>Fyll i ansökan nedan. Detta är en första designversion av formuläret; anslutning till databas och staffpanel läggs till i nästa steg.</p></div>
-      ```html
+    
 <form class="application-form" id="application-form">
 
   <label>
@@ -210,17 +210,57 @@
   <p class="form-note" id="form-note" role="status">
     Din ansökan skickas in för granskning av staff.
   </p>
-
 </form>
-```
-
-    </section>
-
-    <section class="discord-section" id="discord"><p class="eyebrow">HÄNG MED</p><h2>All information på ett ställe.</h2><p>Gå med i Discord för nyheter, support, whitelist och kontakt med communityn.</p><a class="button secondary" href="#top">Lägg in Discord-länk senare</a></section>
+</section>
+<section class="discord-section" id="discord"><p class="eyebrow">HÄNG MED</p><h2>All information på ett ställe.</h2><p>Gå med i Discord för nyheter, support, whitelist och kontakt med communityn.</p><a class="button secondary" href="#top">Lägg in Discord-länk senare</a></section>
     </main>
 
 
   <footer><span>© Stadsförnuftet Roleplay 20+</span><span>Byggd med blått, svart och vitt.</span></footer>
   <script src="script.js"></script>
+  <script>
+  const form = document.getElementById("application-form");
+  const formNote = document.getElementById("form-note");
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const submitButton = form.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.textContent = "Skickar...";
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch(
+        "https://stadsfornuftet-whitelist.emil-devvz.workers.dev",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(data)
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Något gick fel.");
+      }
+
+      form.reset();
+      formNote.textContent =
+        "Tack! Din whitelist-ansökan är skickad till staff för granskning.";
+      formNote.style.color = "#67c7ff";
+    } catch (error) {
+      formNote.textContent =
+        "Något gick fel när ansökan skulle skickas. Försök igen senare.";
+      formNote.style.color = "#ff6b6b";
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = "Skicka ansökan";
+    }
+  });
+</script>
 </body>
 </html>
