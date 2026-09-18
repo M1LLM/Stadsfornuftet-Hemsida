@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Stadsförnuftet Roleplay 20+ – en seriös och mogen FiveM-rollspelsserver." />
+  <title>Stadsförnuftet Roleplay 20+</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Stadsförnuftet startsida">
+      <img src="assets/logo.png" alt="Stadsförnuftet SF-logga" />
+      <span><strong>STADSFÖRNUFTET</strong><small>ROLEPLAY 20+</small></span>
+    </a>
+    <button class="menu-toggle" aria-label="Öppna meny" aria-expanded="false">☰</button>
+    <nav class="nav" aria-label="Huvudmeny">
+      <a href="#om">Om servern</a>
+      <a href="#funktioner">Information</a>
+      <a href="#whitelist">Whitelist</a>
+      <a class="nav-cta" href="#discord">Discord</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">FIVEM • SERIÖS ROLEPLAY • 20+</p>
+        <h1>En stad. <span>Ett samhälle.</span><br />Din berättelse.</h1>
+        <p class="lead">Välkommen till Stadsförnuftet Roleplay 20+ – en modern rollspelsmiljö med fokus på moget bemötande, genomtänkt RP och gemenskap.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#whitelist">Ansök om whitelist</a>
+          <a class="button secondary" href="#om">Läs mer</a>
+        </div>
+        <div class="hero-meta"><span>● 20+ server</span><span>● Seriös RP</span><span>● Aktiv staff</span></div>
+      </div>
+      <div class="hero-mark" aria-hidden="true"><div class="glow"></div><img src="assets/logo.png" alt="" /></div>
+    </section>
+
+    <section class="section" id="om">
+      <div class="section-heading"><p class="eyebrow">VÅR IDENTITET</p><h2>Rollspel med tydlig riktning.</h2><p>Vi bygger ett samhälle där spelare, staff och verksamheter tillsammans skapar minnesvärda situationer.</p></div>
+      <div class="cards" id="funktioner">
+        <article class="card"><span class="icon">◈</span><h3>Genomtänkt RP</h3><p>Fokus på sunt förnuft, konsekvenser och trovärdiga karaktärer.</p></article>
+        <article class="card"><span class="icon">✦</span><h3>Mogen gemenskap</h3><p>En 20+ miljö där respekt, tydlighet och bra kommunikation står i centrum.</p></article>
+        <article class="card"><span class="icon">⌁</span><h3>Levande samhälle</h3><p>Jobb, myndigheter, företag och berättelser som formas av spelarna.</p></article>
+      </div>
+    </section>
+
+    <section class="split-section" id="whitelist">
+      <div><p class="eyebrow">WHITELIST</p><h2>Redo att bli en del av staden?</h2><p>Fyll i ansökan nedan. Detta är en första designversion av formuläret; anslutning till databas och staffpanel läggs till i nästa steg.</p></div>
+      <form class="application-form" id="application-form">
+        <label>Discord-namn<input required name="discord" placeholder="Ditt Discord-namn" /></label>
+        <label>Ålder<input required type="number" min="20" name="age" placeholder="20" /></label>
+        <label>Berätta kort om dig<textarea required name="about" rows="4" placeholder="Din erfarenhet och vad du söker i RP..."></textarea></label>
+        <button class="button primary" type="submit">Skicka testansökan</button>
+        <p class="form-note" id="form-note" role="status">Formuläret är i designläge och skickar ännu ingen riktig ansökan.</p>
+      </form>
+    </section>
+
+    <section class="discord-section" id="discord"><p class="eyebrow">HÄNG MED</p><h2>All information på ett ställe.</h2><p>Gå med i Discord för nyheter, support, whitelist och kontakt med communityn.</p><a class="button secondary" href="#top">Lägg in Discord-länk senare</a></section>
+  </main>
+
+  <footer><span>© Stadsförnuftet Roleplay 20+</span><span>Byggd med blått, svart och vitt.</span></footer>
+  <script src="script.js"></script>
+</body>
+</html>
