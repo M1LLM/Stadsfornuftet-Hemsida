@@ -300,6 +300,44 @@
 
 
   <footer><span>© Stadsförnuftet Roleplay 20+</span><span>Byggd med blått, svart och vitt.</span></footer>
+  <script>
+  async function updateServerStatus() {
+    try {
+      const response = await fetch(
+        "https://stadsfornuftet-whitelist.emil-devvz.workers.dev"
+      );
+
+      if (!response.ok) {
+        throw new Error("Kunde inte hämta serverstatus.");
+      }
+
+      const status = await response.json();
+
+      const whitelistStatus = document.getElementById("whitelist-status");
+      const krimstoppStatus = document.getElementById("krimstopp-status");
+
+      if (status.whitelist_open) {
+        whitelistStatus.textContent = "● ÖPPEN";
+        whitelistStatus.className = "status-badge status-open";
+      } else {
+        whitelistStatus.textContent = "● STÄNGD";
+        whitelistStatus.className = "status-badge status-closed";
+      }
+
+      if (status.krimstopp_active) {
+        krimstoppStatus.textContent = "● AKTIVT";
+        krimstoppStatus.className = "status-badge status-closed";
+      } else {
+        krimstoppStatus.textContent = "● EJ AKTIVT";
+        krimstoppStatus.className = "status-badge status-open";
+      }
+    } catch (error) {
+      console.error("Kunde inte hämta serverstatus:", error);
+    }
+  }
+
+  updateServerStatus();
+</script>
   <script src="script.js"></script>
   <script>
   const form = document.getElementById("application-form");
